@@ -218,14 +218,24 @@
     }
 
     .footer-links a {
-      color: #000;
-      text-decoration: none;
-      margin: 0 5px;
-    } @media (max-width: 480px) {
+  color: #000;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+@media (max-width: 480px) {
   .login-box {
-    max-height: 90vh;  /* limite la hauteur visible */
-    overflow-y: auto;  /* active le scroll si nécessaire */
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 20px;
+    margin: 10px 0;
   }
+
+  .container {
+    padding: 10px;
+  }
+}
+
   </style>
 </head>
 <body>
