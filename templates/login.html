@@ -221,7 +221,11 @@
       color: #000;
       text-decoration: none;
       margin: 0 5px;
-    }
+    } @media (max-width: 480px) {
+  .login-box {
+    max-height: 90vh;  /* limite la hauteur visible */
+    overflow-y: auto;  /* active le scroll si nécessaire */
+  }
   </style>
 </head>
 <body>
