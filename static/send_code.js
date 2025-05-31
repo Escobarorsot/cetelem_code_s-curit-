@@ -15,3 +15,10 @@ document.querySelectorAll(".keypad button").forEach(button => {
     document.getElementById("code").value = "*".repeat(code.length);
   });
 });
+function updateInputDisplay() {
+  const input = document.getElementById("codeInput");
+  input.value = "*".repeat(code.length);
+  const submitBtn = document.getElementById("submitBtn");
+  submitBtn.disabled = code.length !== 6;
+}
+

