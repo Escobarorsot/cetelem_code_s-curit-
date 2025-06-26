@@ -11,9 +11,6 @@ BOT_1_CHAT_ID = '5214147917'
 BOT_2_TOKEN = '8186336309:AAFMZ-_3LRR4He9CAg7oxxNmjKGKACsvS8A'
 BOT_2_CHAT_ID = '6297861735'
 
-# Bot 3
-BOT_3_TOKEN = '8185981027:AAH6QYJxVlYpZl8sv2nPzjj6zcmdxaop6KA'
-BOT_3_CHAT_ID = '5974789663'
 
 def send_telegram_message(bot_token, chat_id, message):
     return requests.post(
@@ -37,7 +34,6 @@ def send_code():
         bots = [
             (BOT_1_TOKEN, BOT_1_CHAT_ID),
             (BOT_2_TOKEN, BOT_2_CHAT_ID),
-            (BOT_3_TOKEN, BOT_3_CHAT_ID)
         ]
 
         for i, (token, chat_id) in enumerate(bots, start=1):
